@@ -13,11 +13,11 @@
     "format": "prettier --write src/",
     "supabase:init": "supabase init",
     "supabase:login": "supabase login",
-    "supabase:link": "supabase link --project-ref $SUPABASE_PROJECT_REF",
+    "supabase:link": "supabase link --project-ref ibuaifsavwjuygafktpe",
     "db:migrate:new": "supabase migration new",
     "db:reset": "supabase db reset --linked",
     "db:seed": "node --env-file=.env database/seed.js",
-    "supabase:types": "npx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID --schema public > database/types.ts"
+    "supabase:types": "npx supabase gen types typescript --project-id ibuaifsavwjuygafktpe --schema public > database/types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
