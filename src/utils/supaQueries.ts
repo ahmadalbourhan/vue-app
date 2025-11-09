@@ -27,7 +27,7 @@ export const projectQuery = (slug: string) =>
     status,
     due_date
    )
-  `
+  `,
     )
     .eq('slug', slug)
     .single()
@@ -38,7 +38,7 @@ export const updateProjectQuery = (updatedProject = {}, id: number) => {
   return supabase.from('projects').update(updatedProject).eq('id', id)
 }
 
-export const taskQuery = (id: string) => {
+export const taskQuery = (id: number) => {
   return supabase
     .from('tasks')
     .select(
@@ -49,7 +49,7 @@ export const taskQuery = (id: string) => {
         name,
         slug
       )
-    `
+    `,
     )
     .eq('id', id)
     .single()
@@ -64,23 +64,14 @@ export const deleteTaskQuery = (id: number) => {
   return supabase.from('tasks').delete().eq('id', id)
 }
 
-export const profileQuery = ({
-  column,
-  value
-}: {
-  column: string
-  value: string
-}) => {
+export const profileQuery = ({ column, value }: { column: string; value: string }) => {
   return supabase.from('profiles').select().eq(column, value).single()
 }
 
 export const profilesQuery = supabase.from('profiles').select(`id, full_name`)
 
 export const groupedProfilesQuery = (userIds: string[]) =>
-  supabase
-    .from('profiles')
-    .select('username, avatar_url, id, full_name')
-    .in('id', userIds)
+  supabase.from('profiles').select('username, avatar_url, id, full_name').in('id', userIds)
 export type Collabs = QueryData<ReturnType<typeof groupedProfilesQuery>>
 
 export const createNewTaskQuery = (newTask: CreateNewTask) => {
