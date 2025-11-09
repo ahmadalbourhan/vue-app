@@ -52,7 +52,7 @@ const { profile } = storeToRefs(useAuthStore())
 const createTask = async (formData: CreateNewTask) => {
   const task = {
     ...formData,
-    collaborators: [profile.value?.id]
+    collaborators: [profile.value!.id]
   }
 
   const { error } = await createNewTaskQuery(task)
