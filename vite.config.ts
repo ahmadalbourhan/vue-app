@@ -36,6 +36,9 @@ export default defineConfig({
         {
           pinia: ['defineStore', 'storeToRefs', 'acceptHMRUpdate'],
         },
+        {
+          'vue-meta': ['useMeta'],
+        },
       ],
 
       // Filepath to generate corresponding .d.ts file.
@@ -45,7 +48,7 @@ export default defineConfig({
       // Include auto-imported packages in Vite's `optimizeDeps` options
       // Recommend to enable
       viteOptimizeDeps: true,
-      dirs: ['src/stores/**', 'src/composables/**']
+      dirs: ['src/stores/**', 'src/composables/**'],
     }),
 
     vue({
